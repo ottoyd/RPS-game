@@ -27,7 +27,15 @@ io.on('connection', function(socket) {
   })
 
   socket.on('create-room', (data) => {
-    room.push(data)
+    let dataRoom = {
+      id: 1,
+      capacity: data.capacity
+    }
+    if (room.length !== 0) {
+      dataRoom.id = room[room.length-1].id +1
+    }
+
+    room.push(dataRoom)
     console.log(room)
     io.emit('all-room', room)
   })

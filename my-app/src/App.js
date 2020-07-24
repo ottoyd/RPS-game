@@ -8,6 +8,7 @@ import {
 
 import LandingPage from "./views/LandingPage"
 import MainPage from "./views/MainPage"
+import Game from "./views/Game"
 
 export default function App() {
   return (
@@ -33,7 +34,7 @@ export default function App() {
           <Route path="/MainPage">
             <MainPage />
           </Route>
-          <Route path="/Game">
+          <Route path="/Game/:id">
             <Game />
           </Route>
           <Route path="/">
@@ -45,6 +46,3 @@ export default function App() {
   );
 }
 
-function Game() {
-  return <h2>ini GAME</h2>;
-}

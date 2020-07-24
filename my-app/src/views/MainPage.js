@@ -23,6 +23,7 @@ export default function MainPage() {
     socket.on('all-room', dataRoom => {
       setRoom(dataRoom)
     })
+
   }, [userLogin, allChatMsg, room])
 
   const handleSend = () => {
@@ -35,19 +36,29 @@ export default function MainPage() {
   }
 
   const handleCreateRoom = () => {
-    let id
-    if (room.length == 0) id = 1
-    else id = room[room.length-1].id + 1
     let dataRoom = {
-      id,
       capacity: 1
     }
     socket.emit('create-room', dataRoom)
-    history.push('/Game')
+    console.log(room.length)
+    if (room.length === 0) history.push(`/Game/1`)
+    else history.push(`/Game/${room[room.length-1].id + 1}`)
+    
   }
 
   const handleJoin = (roomId) => {
-    console.log(roomId)
+    for (let i in room) {
+      if (room[i].id === roomId) room[i].capacity += 1
+    }
+    history.push(`/Game/${roomId}`)
+  }
+
+  const checkFull = (room) => {
+    if (room.capacity === 1) {
+      return <button className = "roomBoxBtn" onClick={() => handleJoin(room.id)}>Join</button>
+    } else {
+      return <button className = "roomBoxBtn">FULL</button>
+    }
   }
 
   return (
@@ -64,10 +75,11 @@ export default function MainPage() {
           <button className = "btnCreateRoom" onClick={() => handleCreateRoom()}>+</button>
         </div>
         {room.map((r) => {
+          console.log(room)
           return (
             <div className = "roomBox">
               <p>{r.id}</p>
-              <button className = "roomBoxBtn" onClick={() => handleJoin(r.id)}>Join</button>
+              {checkFull(r)}
             </div>
           )
         })}
