@@ -1,0 +1,97 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  background-color: red;
+  height: 600px;
+}
+
+.userBox {
+  background-color: blue;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.currentUser {
+  width: 96%;
+  height: 5%;
+  margin: 2%;
+  background: #fff;
+}
+
+.allUser {
+  width: 96%;
+  height: 5%;
+  margin: 2%;
+  background: grey;
+}
+
+.roomBox {
+  display: flex;
+  width: 96%;
+  height: 10%;
+  margin: 2%;
+  background: grey;
+}
+
+.roomBoxBtn {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 2%;
+  width: 15%;
+  height: 40%;
+}
+
+.chatBox {
+  background-color: green;
+  width: 68%;
+  margin: 1%;
+  height: 95%;
+}
+
+.allChat {
+  background-color: orange;
+  margin: 1%;
+  width: 98%;
+  height: 85%;
+}
+
+.chatTextBox {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 1%;
+  width: 98%;
+  height: 6%;
+}
+
+.chatTextInput {
+  /* background-color: red; */
+  margin-right: 1%;
+  width: 80%;
+  height: 75%;
+}
+
+.chatTextButton {
+  /* margin: 1%; */
+  width: 20%;
+  height: 90%;
+}
+
+.chatContainer {
+  display: flex;
+  /* height: 1%; */
+}
+
+.roomContainer {
+  margin: 2%;
+  display: flex;
+  height: 10%;
+}
+
+.btnCreateRoom {
+  height: 40%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10%;
+}
